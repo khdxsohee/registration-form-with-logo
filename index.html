@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #8A2BE2, #FF1493); /* Purple to Pink gradient for body */
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    width: 950px; /* Adjusted width for better resemblance */
+    max-width: 90%;
+    min-height: 550px; /* Adjusted height */
+    overflow: hidden;
+}
+
+/* Welcome Section (Left Side) */
+.welcome-section {
+    flex: 1.2; /* Slightly wider than login section */
+    background: linear-gradient(to bottom right, #4B0082, #8A2BE2); /* Darker purple gradient */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute content vertically */
+    align-items: center;
+    padding: 40px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+    overflow: hidden; /* Hide overflowing shapes */
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    align-self: flex-start; /* Align logo to top-left */
+    margin-bottom: auto; /* Push content to center */
+}
+
+.logo-circle {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    margin-right: -10px; /* Overlap circles */
+}
+
+.logo-circle:last-child {
+    margin-right: 10px; /* Space from text */
+}
+
+.logo-text {
+    font-weight: 600;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+.welcome-content {
+    text-align: center;
+    flex-grow: 1; /* Allows it to take available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically within its space */
+}
+
+.welcome-section h2 {
+    font-size: 3em; /* Larger font for "Welcome Page" */
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.welcome-section p {
+    font-size: 1.1em;
+    opacity: 0.8;
+}
+
+.website-link {
+    align-self: flex-end; /* Align to bottom-left */
+    margin-top: auto; /* Push content to center */
+}
+
+.website-link p {
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+.gradient-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Allow clicks through shapes */
+}
+
+.shape {
+    position: absolute;
+    background: linear-gradient(to right, #DA70D6, #FF69B4); /* Pinkish gradient for shapes */
+    border-radius: 50%;
+    opacity: 0.6;
+    filter: blur(10px); /* Soften the edges */
+}
+
+.s1 {
+    width: 150px;
+    height: 150px;
+    top: 20%;
+    left: 10%;
+    transform: translateX(-50%);
+}
+
+.s2 {
+    width: 100px;
+    height: 100px;
+    bottom: 15%;
+    right: -20px;
+}
+
+.s3 {
+    width: 80px;
+    height: 80px;
+    top: 60%;
+    left: 70%;
+    transform: translateY(-50%);
+}
+
+.s4 {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: 80%;
+}
+
+
+/* Login Section (Right Side) */
+.login-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.login-content {
+    width: 100%;
+    max-width: 350px;
+}
+
+.login-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 600;
+    text-align: left; /* Align 'Sign In' text to left */
+}
+
+.login-form input {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 15px 20px;
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #8A2BE2; /* Highlight border on focus */
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #8A2BE2;
+}
+
+.btn {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 15px; /* Space between buttons */
+}
+
+.login-btn {
+    background: linear-gradient(to right, #EE82EE, #DA70D6); /* Pinkish purple gradient for login button */
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.login-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.social-login {
+    margin-top: 30px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1em;
+    padding: 12px 20px; /* Slightly smaller padding for social buttons */
+}
+
+.twitter-btn {
+    background-color: #1DA1F2; /* Twitter blue */
+    color: #fff;
+}
+
+.twitter-btn:hover {
+    background-color: #1686d0;
+}
+
+.facebook-btn {
+    background-color: #3B5998; /* Facebook blue */
+    color: #fff;
+}
+
+.facebook-btn:hover {
+    background-color: #2e4a86;
+}
+
+.social-btn i {
+    font-size: 1.2em;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        min-height: auto;
+        width: 90%;
+    }
+
+    .welcome-section {
+        border-radius: 20px 20px 0 0;
+        padding: 30px;
+        min-height: 250px; /* Give some height to welcome section */
+    }
+
+    .welcome-content h2 {
+        font-size: 2.5em;
+    }
+
+    .welcome-content p {
+        font-size: 1em;
+    }
+
+    .login-section {
+        border-radius: 0 0 20px 20px;
+        padding: 30px;
+    }
+
+    .login-section h2 {
+        text-align: center; /* Center sign in on small screens */
+    }
+
+    .website-link {
+        align-self: center; /* Center on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-section h2 {
+        font-size: 2em;
+    }
+
+    .welcome-content p {
+        font-size: 0.9em;
+    }
+
+    .login-form input {
+        padding: 12px 15px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+
+    .social-btn {
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+
+    .logo-area {
+        align-self: center; /* Center logo on very small screens */
+    }
+}
+</style>
+<body>
+    <div class="container">
+        <div class="welcome-section">
+            <div class="logo-area">
+                <div class="logo-circle"></div>
+                <div class="logo-circle"></div>
+                <span class="logo-text">LOGO</span>
+            </div>
+            <div class="welcome-content">
+                <h2>Welcome Page</h2>
+                <p>Sign in to continue access</p>
+            </div>
+            <div class="website-link">
+                <p>www.yourwebsite.com</p>
+            </div>
+            <div class="gradient-shapes">
+                <span class="shape s1"></span>
+                <span class="shape s2"></span>
+                <span class="shape s3"></span>
+                <span class="shape s4"></span>
+            </div>
+        </div>
+
+        <div class="login-section">
+            <div class="login-content">
+                <h2>Sign In</h2>
+                <form class="login-form">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <a  class="forgot-password">Forgot password?</a>
+                    <button type="submit" class="btn login-btn">LOGIN</button>
+                </form>
+                <div class="social-login">
+                    <button class="btn social-btn twitter-btn">
+                        <i class="fab fa-twitter"></i> Sign in with Twitter
+                    </button>
+                    <button class="btn social-btn facebook-btn">
+                        <i class="fab fa-facebook-f"></i> Sign in with Facebook
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
